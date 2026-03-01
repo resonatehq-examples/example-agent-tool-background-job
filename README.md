@@ -2,11 +2,31 @@
 
 This example shows a minimal example of Resonate + MCP.
 
+Basically an MCP Server merges with a Resonate Worker.
+
+All tool invocations become durable, and recoverable.
+
+For this example, think of the timer as a background job. Claude starts a background job and instead of waiting for the result it receives a promise ID.
+
+Claude can then later use the promise ID to check for the result of the background job.
+
+Normally this would require quite a bit of engineering work to accomplish with the current MCP Server design.
+However, with Resonate, you j
+
+### Resonate Server
+
+For the MCP Server background jobs to be durable, you need a Resonate Server running.
+
+```shell
+brew install resonatehq/tap/resonate
+resonate serve
+```
+
+### MCP Server proxy
+
 To use Resonate in an MCP Server, the MCP Server needs to be run using "streamable-http" as the transport.
 
 Therefore, you need a stdio -> streamable-http proxy running for Claude to talk to.
-
-### proxy
 
 ```python
 from fastmcp import FastMCP
@@ -53,7 +73,7 @@ You should restart Claude desktop after changing this config.
 On the MCP Server, make sure you return a promise ID - instead of blocking on a result.
 Claude can then use the promise ID to check for the result at any point later on.
 
-### timer mcp server
+### Timer MCP Server
 
 The function that runs in the back is decorated with `@resonate.register`.
 
