@@ -1,3 +1,7 @@
+<p align="center">
+  <img src="./assets/banner.png" alt="Agent Tool Background Job — Resonate example" />
+</p>
+
 # Async timer AI Agent tool | Resonate example application
 
 This example shows a minimal example of Resonate + MCP.
