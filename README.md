@@ -1,3 +1,11 @@
+<p align="center">
+  <picture>
+    <source media="(prefers-color-scheme: dark)" srcset="./assets/banner-dark.png">
+    <source media="(prefers-color-scheme: light)" srcset="./assets/banner-light.png">
+    <img alt="Agent Tool Background Job — Resonate example" src="./assets/banner-dark.png">
+  </picture>
+</p>
+
 # Async timer AI Agent tool | Resonate example application
 
 This example shows a minimal example of Resonate + MCP.
